@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bootstrap Tabs</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-10 ml-auto col-xl-6 mr-auto">
+        <!-- Nav tabs -->
+        <div class="card">
+          <div class="card-header">
+            <ul class="nav nav-tabs justify-content-center" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+                  <b>₹</b> To <b>%</b>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                  <b>%</b> To <b>₹</b>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="card-body">
+            <!-- Tab panes -->
+            <div class="tab-content text-center">
+              <div class="tab-pane active" id="home" role="tabpanel">
+                <div class="rstop mb-3">
+                  <p class="text-capitalize">calculate the percent from charges </p>
+                  <div class="form-group row">
+                    <label class="col-4 col-form-label">Total Amount</label>
+                    <div class="col-8">
+                      <input type="text" class="form-control" id="txt2" name="text1" placeholder="Enter Total Amount"
+                        required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-4 col-form-label">Extra Charges</label>
+                    <div class="col-8">
+                      <input type="text" class="form-control" id="txt1" name="text2" placeholder="Enter Extra Charges"
+                        required>
+                    </div>
+                  </div>
+                  <button class="btn btn-dark" id="rstop-btn">Calculate</button>
+                </div>
+                <div class="rstop_ans">
+                </div>
+              </div>
+              <div class="tab-pane" id="profile" role="tabpanel">
+                <div class="ptors mb-3">
+                  <p class="text-capitalize">calculate the charges from percent</p>
+                  <div class="form-group row">
+                    <label class="col-4 col-form-label">Amount</label>
+                    <div class="col-8">
+                      <input type="text" class="form-control" id="txt3" name="text3" placeholder="Enter Amount"
+                        required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-4 col-form-label">percent</label>
+                    <div class="col-8">
+                      <input type="text" class="form-control" id="txt4" name="text4" placeholder="Enter ercent(%)"
+                        required>
+                    </div>
+                  </div>
+                  <button class="btn btn-dark" id="ptors-btn">Calculate</button>
+                </div>
+                <div class="ptors_ans"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <footer class="footer text-center ">
+    <p>Made by Manish Kanvadiya</p>
+  </footer> -->
+  <!-- partial -->
+
+  <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+</body>
+<script>
+
+  $('#rstop-btn').click(function () {
+    var rstop1 = $('#txt1').val()
+    var rstop2 = $('#txt2').val()
+    var rstopTotal = (rstop1 / rstop2 * 100).toFixed(2).concat('%');
+    $('.rstop_ans').html('<p class=" text-capitalize alert alert-info mb-0 font-weight-bold">percent - \'' + rstopTotal + '\' </p>');
+  })
+  $('#ptors-btn').click(function () {
+    var ptors1 = $('#txt3').val()
+    var ptors2 = $('#txt4').val()
+    var ptorsTotal = ptors1 * ptors2 / 100;
+    var newT = '₹' + ptorsTotal;
+    // console.log(ptorsTotal.concat(''));
+    $('.ptors_ans').html('<p class=" text-capitalize alert alert-info mb-0 font-weight-bold">amount - \'' + newT + '\' </p>');
+
+  })
+</script>
+
+
+</html>
